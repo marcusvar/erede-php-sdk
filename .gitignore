@@ -3,4 +3,5 @@
 .project
 .settings/*
 vendor/*
+tmp/*
 main.php

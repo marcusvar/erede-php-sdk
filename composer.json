@@ -1,0 +1,26 @@
+{
+    "name": "devsdmf/erede",
+    "type": "library",
+    "description": "The e-Rede payment gateway SDK for PHP.",
+    "keywords": ["devsdmf","erede","userede","redecard","payment","library"],
+    "homepage": "http://www.devsdmf.net",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Lucas Mendes de Freitas",
+            "email": "devsdmf@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "slice/xml": "v1.0.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Rede\\Erede": "src"
+        }
+    }
+}
