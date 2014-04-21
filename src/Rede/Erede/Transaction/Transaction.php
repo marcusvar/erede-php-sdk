@@ -8,16 +8,36 @@ use Rede\Erede\Transaction\CardTxn;
 use Rede\Erede\Transaction\TxnDetails;
 use Rede\Erede\Transaction\HistoricTxn;
 
+/**
+ * 
+ * @author devsdmf
+ * @export Transaction
+ */
 class Transaction extends AbstractComponent implements InterfaceComponent
 {
 	
+	/**
+	 * @export CardTxn
+	 * @persistent false
+	 */
 	protected $card_txn = null;
 	
+	/**
+	 * @export TxnDetails
+	 * @persistent false
+	 */
 	protected $txn_details = null;
 	
+	/**
+	 * @export HistoricTxn
+	 * @persistent false
+	 */
 	protected $historic_txn = null;
 	
-	public function asXML(){}
+	public function asXML()
+	{
+		return $this->parseXML();
+	}
 	
 	public static function factory(array $data)
 	{

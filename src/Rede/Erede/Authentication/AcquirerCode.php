@@ -10,7 +10,10 @@ class AcquirerCode extends AbstractComponent implements InterfaceComponent
 	
 	protected $rdcd_pv = null;
 	
-	public function asXML(){}
+	public function asXML()
+	{
+		return $this->parseXML();
+	}
 	
 	public static function factory(array $data)
 	{

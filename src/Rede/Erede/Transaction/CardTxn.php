@@ -9,6 +9,9 @@ use Rede\Erede\Transaction\Card;
 class CardTxn extends AbstractComponent implements InterfaceComponent
 {
 	
+	/**
+	 * @export Card
+	 */
 	protected $card = null;
 	
 	protected $authcode = null;
@@ -17,7 +20,10 @@ class CardTxn extends AbstractComponent implements InterfaceComponent
 	
 	public function __construct(){}
 	
-	public function asXML(){}
+	public function asXML()
+	{
+		return $this->parseXML();
+	}
 	
 	public static function factory(array $data)
 	{

@@ -12,7 +12,10 @@ class CustomerInfo extends AbstractComponent implements InterfaceComponent
 	
 	public function __construct(){}
 	
-	public function asXML(){}
+	public function asXML()
+	{
+		return $this->parseXML();
+	}
 	
 	public static function factory(array $data)
 	{

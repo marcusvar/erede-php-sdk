@@ -6,16 +6,27 @@ use Rede\Erede\AbstractComponent;
 use Rede\Erede\InterfaceComponent;
 use Rede\Erede\Authentication\AcquirerCode;
 
+/**
+ * 
+ * @author devsdmf
+ * @export Authentication
+ *
+ */
 class Authentication extends AbstractComponent implements InterfaceComponent
 {
-	
+	/**
+	 * @export AcquirerCode
+	 */
 	protected $acquirerCode = null;
 	
 	protected $password = null;
 	
 	public function __construct(){}
 	
-	public function asXML(){}
+	public function asXML()
+	{
+		return $this->parseXML();
+	}
 	
 	public static function factory(array $data)
 	{

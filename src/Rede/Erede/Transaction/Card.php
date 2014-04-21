@@ -8,15 +8,24 @@ use Rede\Erede\InterfaceComponent;
 class Card extends AbstractComponent implements InterfaceComponent
 {
 	
+	/**
+	 * @export pan
+	 */
 	protected $number = null;
 	
 	protected $expirydate = null;
 	
+	/**
+	 * @persistent false
+	 */
 	protected $card_account_type = null;
 	
 	public function __construct(){}
 	
-	public function asXML(){}
+	public function asXML()
+	{
+		return $this->parseXML();
+	}
 	
 	public static function factory(array $data)
 	{

@@ -9,29 +9,52 @@ use Rede\Erede\Transaction\AdditionalInfo;
 class TxnDetails extends AbstractComponent implements InterfaceComponent
 {
 	
-	protected $merchant_reference = null;
+	/**
+	 * @persistent false
+	 */
+	protected $merchantreference = null;
 	
 	protected $amount = null;
 	
+	/**
+	 * @persistent false
+	 */
 	protected $capturemethod = null;
 	
+	/**
+	 * @persistent false
+	 */
 	protected $dba = null;
 	
+	/**
+	 * @persistent false
+	 */
 	protected $multipv = null;
 	
+	/**
+	 * @attribute amount
+	 * @persistent false
+	 */
 	protected $currency = null;
 	
+	/**
+	 * @export AdditionalInfo
+	 * @persistent false
+	 */
 	protected $additional_info = null;
 	
 	public function __construct(){}
 	
-	public function asXML(){}
+	public function asXML()
+	{
+		return $this->parseXML();
+	}
 	
 	public static function factory(array $data)
 	{
 		$instance = new self();
 		
-		$instance->merchant_reference = (isset($data['merchant_reference'])) ? $data['merchant_reference'] : null;
+		$instance->merchantreference = (isset($data['merchantreference'])) ? $data['merchantreference'] : null;
 		$instance->amount = (isset($data['amount'])) ? $data['amount'] : null;
 		$instance->capturemethod = (isset($data['capturemethod'])) ? $data['capturemethod'] : null;
 		$instance->dba = (isset($data['dba'])) ? $data['dba'] : null;
