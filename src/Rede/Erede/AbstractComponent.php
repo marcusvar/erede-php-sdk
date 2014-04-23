@@ -66,7 +66,7 @@ abstract class AbstractComponent
 		$annotation = new ReflectionAnnotation($instance);
 		$annotations = $annotation->getAnnotations();
 		
-		$serializer = new Serializer('array',array(Serializer::SERIALIZE_OPTION_EOL=>PHP_EOL));
+		$serializer = new Serializer('array');
 		
 		if (isset($annotations['export'])) {
 			$serializer->setOption(Serializer::SERIALIZE_OPTION_ROOT_NODE,trim($annotations['export']));
