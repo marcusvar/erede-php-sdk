@@ -17,6 +17,11 @@ class TxnDetails extends AbstractComponent implements InterfaceComponent
 	protected $amount = null;
 	
 	/**
+	 * @export Instalments
+	 */
+	protected $instalments = null;
+	
+	/**
 	 * @persistent false
 	 */
 	protected $capturemethod = null;
@@ -56,6 +61,7 @@ class TxnDetails extends AbstractComponent implements InterfaceComponent
 		
 		$instance->merchantreference = (isset($data['merchantreference'])) ? $data['merchantreference'] : null;
 		$instance->amount = (isset($data['amount'])) ? $data['amount'] : null;
+		$instance->instalments = (isset($data['instalments']) && is_array($data['instalments'])) ? $data['instalments'] : null;
 		$instance->capturemethod = (isset($data['capturemethod'])) ? $data['capturemethod'] : null;
 		$instance->dba = (isset($data['dba'])) ? $data['dba'] : null;
 		$instance->multipv = (isset($data['multipv'])) ? $data['multipv'] : null;
