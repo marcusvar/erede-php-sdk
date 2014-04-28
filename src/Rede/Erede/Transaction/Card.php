@@ -20,6 +20,11 @@ class Card extends AbstractComponent implements InterfaceComponent
 	 */
 	protected $card_account_type = null;
 	
+	/**
+	 * @export Cv2Avs
+	 */
+	protected $cv2avs = null;
+	
 	public function __construct(){}
 	
 	public function asXML()
@@ -34,6 +39,14 @@ class Card extends AbstractComponent implements InterfaceComponent
 		$instance->number = (isset($data['number'])) ? $data['number'] : null;
 		$instance->expirydate = (isset($data['expirydate'])) ? $data['expirydate'] : null;
 		$instance->card_account_type = (isset($data['card_account_type'])) ? $data['card_account_type'] : null;
+		
+		if (isset($data['cv2avs'])) {
+			if ($data['cv2avs'] instanceof Cv2Avs) {
+				$instance->cv2avs = $data['cv2avs'];
+			} elseif(is_array($data['cv2avs'])) {
+				$instance->cv2avs = Cv2Avs::factory($data['cv2avs']);
+			}
+		}
 		
 		return $instance;
 	}
