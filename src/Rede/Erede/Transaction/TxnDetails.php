@@ -18,6 +18,7 @@ class TxnDetails extends AbstractComponent implements InterfaceComponent
 	
 	/**
 	 * @export Instalments
+	 * @persistent false
 	 */
 	protected $instalments = null;
 	
