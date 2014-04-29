@@ -34,6 +34,12 @@ class Transaction extends AbstractComponent implements InterfaceComponent
 	 */
 	protected $historic_txn = null;
 	
+	/**
+	 * @export BoletoTxn
+	 * @persistent false
+	 */
+	protected $boleto_txn = null;
+	
 	public function asXML()
 	{
 		return $this->parseXML();
@@ -64,6 +70,14 @@ class Transaction extends AbstractComponent implements InterfaceComponent
 				$instance->historic_txn = $data['historic_txn'];
 			} elseif (is_array($data['historic_txn'])) {
 				$instance->historic_txn = HistoricTxn::factory($data['historic_txn']);
+			}
+		}
+		
+		if (isset($data['boleto_txn'])) {
+			if ($data['boleto_txn'] instanceof BoletoTxn) {
+				$instance->boleto_txn = $data['boleto_txn'];
+			} elseif (is_array($data['boleto_txn'])) {
+				$instance->boleto_txn = BoletoTxn::factory($data['boleto_txn']);
 			}
 		}
 		
